@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: radial-gradient(circle, #fce4ec, #f1f8e9);
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            width: 80%;
+            height: 80%;
+            position: relative;
+        }
+
+        .cake-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .cake-image {
+            width: 300px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+            animation: cakeAnimation 1s ease-in-out;
+        }
+
+        @keyframes cakeAnimation {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .card-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .notebook-card {
+            width: 300px;
+            height: 400px;
+            perspective: 1000px;
+        }
+
+        .notebook-card-inner {
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 1s;
+            cursor: pointer;
+            position: relative;
+            transform: rotateY(0deg);
+        }
+
+        .notebook-card.open .notebook-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .notebook-card-front,
+        .notebook-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+        }
+
+        .notebook-card-front {
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+        }
+
+        .notebook-card-back {
+            background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 18px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+        }
+
+        .notebook-card-back h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .notebook-card-back p {
+            margin-top: 10px;
+            font-size: 20px;
+        }
+
+        .butterfly {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: radial-gradient(circle, #ff80ab, #e040fb);
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            animation: fly 6s infinite;
+        }
+
+        .butterfly:nth-child(1) {
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .butterfly:nth-child(2) {
+            top: 30%;
+            left: 70%;
+            animation-delay: 2s;
+        }
+
+        .butterfly:nth-child(3) {
+            top: 60%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes fly {
+            0% {
+                transform: translateY(0) translateX(0);
+            }
+            50% {
+                transform: translateY(-30px) translateX(30px);
+            }
+            100% {
+                transform: translateY(0) translateX(0);
+            }
+        }
+
+        .flower {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: radial-gradient(circle, #ffeb3b, #fbc02d);
+            border-radius: 50%;
+            animation: bloom 5s ease-in-out;
+        }
+
+        .flower:nth-child(4) {
+            top: 20%;
+            left: 50%;
+            animation-delay: 0s;
+        }
+
+        .flower:nth-child(5) {
+            top: 40%;
+            left: 40%;
+            animation-delay: 1s;
+        }
+
+        .flower:nth-child(6) {
+            top: 60%;
+            left: 60%;
+            animation-delay: 2s;
+        }
+
+        @keyframes bloom {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.5);
+                opacity: 0.7;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="cake-section">
+            <img src="images//cake.jpeg" alt="Pikachu Cake" class="cake-image">
+        </div>
+
+        <div class="card-section">
+            <div class="notebook-card" id="notebookCard">
+                <div class="notebook-card-inner">
+                    <div class="notebook-card-front">
+                        <div>Click to Open</div>
+                    </div>
+                    <div class="notebook-card-back">
+                        <h1>Happy Birthday Navu!</h1>
+                        <p>Wishing you a day filled with love, joy, and cake! After 20 years your hair gets white, teeth start broking, Kids call you Aunty. you can't eat sweets because of sugar.
+						Still i wish you happy happy birthday. God bless you with all heights and happiness. You will surely become a Good HR and grow in your life.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Butterfly and Flower decorations -->
+        <div class="butterfly"></div>
+        <div class="butterfly"></div>
+        <div class="butterfly"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+    </div>
+
+    <script>
+        document.querySelector('.notebook-card').addEventListener('click', function() {
+            this.classList.toggle('open');
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initially hide flowers
+            document.querySelectorAll('.flower').forEach(flower => flower.style.display = 'none');
+
+            // Show flowers when the card opens
+            document.querySelector('.notebook-card').addEventListener('click', () => {
+                document.querySelectorAll('.flower').forEach(flower => flower.style.display = 'block');
+            });
+        });
+    </script>
+</body>
+</html>
